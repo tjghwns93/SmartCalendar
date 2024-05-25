@@ -1,38 +1,410 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+html {
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  word-break: keep-all;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  padding-top: 50px;
+  border-bottom: 1px solid #b2b2b2;
+  z-index: 999;
+  background-color: #fafafb;
+}
+header .header-banner {
   display: flex;
+  justify-content: space-between;
+  padding: 0 150px;
+  margin-bottom: 25px;
+}
+header .header-banner .header-year {
+  font-size: 30px;
+  color: #FF3B30;
+  font-weight: bold;
+}
+header .header-banner .header-area {
+  font-size: 20px;
+}
+header .header-banner .header-area .area {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  width: 100px;
+  background-color: #D0D3D9;
+  font-family: "Noto Sans KR";
+  font-size: 16px;
+  margin-left: 10px;
+}
+header .header-day {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+header .header-day li {
+  margin-top: 20px;
+  width: 14.2857142857%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.weekend {
+  color: #86868A;
+}
+
+.calendar {
+  display: flex;
+}
+.calendar .calendar-info {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  padding: 50px 20px;
+  border-right: 1px solid #b2b2b2;
+  background-color: #fff;
+}
+.calendar .calendar-info .info .info-weather {
+  margin-bottom: 50px;
+}
+.calendar .calendar-info .info .info-weather .info-weather-header {
+  font-size: 18px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul li {
+  display: flex;
+  text-align: center;
+  width: 25%;
+  height: 150px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-end;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul li .degree {
+  position: relative;
+  font-size: 14px;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul li .degreeBar {
+  position: relative;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul li .degreeBar::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #E2E6EB;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul li .degreeBar::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background-color: #E2E6EB;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul li .weatherBox {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+}
+.calendar .calendar-info .info .info-weather .info-weather-data ul li .time {
+  font-size: 11px;
+}
+.calendar .calendar-info .info .info-memo {
+  width: 250px;
+  max-width: 250px;
+  min-height: 300px;
+  padding: 5px;
+  border: none;
+  border-top: 12px solid #F8E950;
+  background-color: #FBF49F;
+  box-shadow: -4px 4px 20px 0px #939393;
+}
+.calendar .calendar-month {
+  width: calc(100% - 300px);
+  margin-left: auto;
+  background-color: #f4f4f5;
+  padding-top: 30vh;
+}
+.calendar .calendar-month .month {
+  width: 100%;
+}
+.calendar .calendar-month .month .date {
+  width: 14.2857142857%;
+  height: 120px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+}
+.calendar .calendar-month .month .month-header {
+  display: flex;
+  font-size: 40px;
+  font-weight: bold;
+  color: #FF3B30;
+  margin-bottom: 15px;
+}
+.calendar .calendar-month .month .month-header .headerDate {
+  height: auto;
+}
+.calendar .calendar-month .month .date-grid {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 25px;
+}
+.calendar .calendar-month .month .date-grid .true {
+  border-top: 1px solid #b2b2b2;
+  cursor: pointer;
+}
+.calendar .calendar-month .month .date-grid .true .clicked {
+  position: relative;
   color: white;
+  z-index: 100;
+}
+.calendar .calendar-month .month .date-grid .true .clicked::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% + 2px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FF3B30;
+  z-index: -1;
+}
+.calendar .calendar-month .month .date-grid .true .weatherImg {
+  display: inline-block;
+  width: 38px;
+  margin-top: 10px;
+}
+.calendar .calendar-month .month .date-grid .memoed {
+  position: relative;
+}
+.calendar .calendar-month .month .date-grid .memoed::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FF3B30;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (min-width: 0px) and (max-width: 575px) {
+  header {
+    width: 100%;
+    padding-top: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  header .header-banner {
+    margin-bottom: 0;
+    padding: 0 15px;
+  }
+  header .header-banner .header-year {
+    font-size: 20px;
+  }
+  header .header-banner .header-area {
+    font-size: 15px;
+  }
+  header .header-banner .header-area .area {
+    font-size: 13px;
+  }
+  header .header-day {
+    padding-bottom: 15px;
+  }
+  header .header-day li {
+    font-size: 18px;
+  }
+  .calendar .calendar-info {
+    top: auto;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-right: none;
+    border-top: 1px solid #cfcfcf;
+    z-index: 999;
+  }
+  .calendar .calendar-info .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .calendar .calendar-info .info .info-weather {
+    width: 50%;
+    margin-bottom: 0;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-header {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-data ul {
+    row-gap: 10px;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-data ul li {
+    height: 90px;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-data ul li .weatherBox {
+    width: 30px;
+  }
+  .calendar .calendar-info .info .info-memo {
+    min-width: 100px;
+    max-width: 150px;
+    min-height: 150px;
+    max-height: 200px;
+  }
+  .calendar .calendar-month {
+    width: 100%;
+    padding: 20vh 0 40vh;
+  }
+  .calendar .calendar-month .month .month-header {
+    font-size: 30px;
+  }
+  .calendar .calendar-month .month .date {
+    height: 70px;
+  }
+  .calendar .calendar-month .month .date-grid .true {
+    font-size: 13px;
+  }
+  .calendar .calendar-month .month .date-grid .true .clicked::after {
+    width: 26px;
+    height: 26px;
+  }
+  .calendar .calendar-month .month .date-grid .true .weatherImg {
+    margin-top: 5px;
+    width: 25px;
+  }
+  .calendar .calendar-month .month .date-grid .memoed::after {
+    bottom: 7px;
+    width: 5px;
+    height: 5px;
   }
 }
+@media only screen and (min-width: 576px) and (max-width: 1200px) {
+  header {
+    width: 100%;
+    padding-top: 15px;
+  }
+  header .header-banner {
+    margin-bottom: 0;
+    padding: 0 100px;
+  }
+  header .header-day {
+    padding-bottom: 15px;
+  }
+  .calendar .calendar-info {
+    top: auto;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-right: none;
+    border-top: 1px solid #cfcfcf;
+    z-index: 999;
+  }
+  .calendar .calendar-info .info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .calendar .calendar-info .info .info-weather {
+    width: 35%;
+    margin-bottom: 0;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-header {
+    margin-bottom: 15px;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-data ul {
+    row-gap: 15px;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-data ul li {
+    height: 100px;
+  }
+  .calendar .calendar-info .info .info-weather .info-weather-data ul li .weatherBox {
+    width: 30px;
+  }
+  .calendar .calendar-info .info .info-memo {
+    min-width: 250px;
+    max-width: 400px;
+    min-height: 150px;
+    max-height: 200px;
+  }
+  .calendar .calendar-month {
+    width: 100%;
+    padding: 20vh 0 25vh;
+  }
+  .calendar .calendar-month .month .date {
+    height: 90px;
+  }
+  .calendar .calendar-month .month .date-grid .true {
+    font-size: 18px;
+  }
+  .calendar .calendar-month .month .date-grid .true .clicked::after {
+    width: 32px;
+    height: 32px;
+  }
+  .calendar .calendar-month .month .date-grid .true .weatherImg {
+    width: 30px;
+  }
+  .calendar .calendar-month .month .date-grid .memoed::after {
+    bottom: 7px;
+    width: 6px;
+    height: 6px;
+  }
+}/*# sourceMappingURL=App.css.map */

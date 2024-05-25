@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+// font-family: "Bebas Neue", sans-serif;
+
+///////// reset ///////
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  word-break: keep-all;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+///////////////////// header ////////////////////
+///////////////////// header ////////////////////
+///////////////////// header ////////////////////
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  padding-top: 50px;
+  border-bottom: 1px solid #b2b2b2;
+  z-index: 999;
+  background-color: #fafafb;
+
+  .header-banner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 150px;
+    margin-bottom: 25px;
+
+    .header-year {
+      font-size: 30px;
+      color: #FF3B30;
+      font-weight: bold;
+    }
+
+    .header-area {
+      font-size: 20px;
+
+      .area {
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-weight: bold;
+        width: 100px;
+        background-color: #D0D3D9;
+        font-family: "Noto Sans KR";
+        font-size: 16px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+
+  .header-day {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+    li {
+      margin-top: 20px;
+      width: calc(100% / 7);
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+
+}
+
+
+///////////////////  calendar /////////////////////
+///////////////////  calendar /////////////////////
+///////////////////  calendar /////////////////////
+
+.weekend {
+  color: #86868A;
+}
+
+.calendar {
+  display: flex;
+
+  .calendar-info {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    padding: 50px 20px;
+    border-right: 1px solid #b2b2b2;
+    background-color: #fff;
+
+    .info {
+
+      .info-weather {
+        margin-bottom: 50px;
+
+        .info-weather-header {
+          font-size: 18px;
+          padding-left: 10px;
+          font-weight: bold;
+        }
+
+        .info-weather-data {
+
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 20px;
+
+            li {
+              display: flex;
+              text-align: center;
+              width: 25%;
+              height: 150px;
+              flex-direction: column;
+              justify-content: flex-end;
+
+              .degree {
+                position: relative;
+                font-size: 14px;
+
+              }
+
+              .degreeBar {
+                position: relative;
+
+                &::after {
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 7px;
+                  height: 7px;
+                  border-radius: 50%;
+                  background-color: #E2E6EB;
+                }
+
+                &::before {
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 1px;
+                  background-color: #E2E6EB;
+                }
+              }
+
+              .weatherBox {
+                position: relative;
+                width: 70%;
+                margin: 0 auto;
+
+              }
+
+              .time {
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+
+      .info-memo {
+        width: 250px;
+        max-width: 250px;
+        min-height: 300px;
+        padding: 5px;
+        border: none;
+        border-top: 12px solid #F8E950;
+        background-color: #FBF49F;
+        box-shadow: -4px 4px 20px 0px #939393;
+      }
+    }
+  }
+
+  .calendar-month {
+    width: calc(100% - 300px);
+    margin-left: auto;
+    background-color: #f4f4f5;
+    padding-top: 30vh;
+
+
+
+    .month {
+      width: 100%;
+
+      .date {
+        width: calc(100% / 7);
+        height: 120px;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 5px;
+      }
+
+      .month-header {
+        display: flex;
+        font-size: 40px;
+        font-weight: bold;
+        color: #FF3B30;
+        margin-bottom: 15px;
+
+        .headerDate {
+          height: auto;
+        }
+      }
+
+      .date-grid {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 25px;
+
+        .true {
+          border-top: 1px solid #b2b2b2;
+          cursor: pointer;
+
+          .clicked {
+            position: relative;
+            color: white;
+            z-index: 100;
+
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              top: calc(50% + 2px);
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: #FF3B30;
+              z-index: -1;
+            }
+          }
+
+          .weatherImg {
+            display: inline-block;
+            width: 38px;
+            margin-top: 10px;
+          }
+        }
+
+        .memoed {
+          position: relative;
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 13px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #FF3B30;
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+
+/////////////////// media ///////////////////////
+/////////////////// media ///////////////////////
+/////////////////// media ///////////////////////
+
+@media only screen and (min-width: 0px) and (max-width: 575px) {
+
+  header {
+    width: 100%;
+    padding-top: 10px;
+
+    .header-banner {
+      margin-bottom: 0;
+      padding: 0 15px;
+
+      .header-year {
+        font-size: 20px;
+      }
+
+      .header-area {
+        font-size: 15px;
+
+        .area {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .header-day {
+      padding-bottom: 15px;
+
+      li {
+        font-size: 18px;
+      }
+    }
+  }
+
+
+  .calendar {
+
+    .calendar-info {
+      top: auto;
+      width: 100%;
+      height: auto;
+      padding: 10px ;
+      border-right: none;
+      border-top: 1px solid #cfcfcf;
+      z-index: 999;
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .info-weather {
+          width: 50%;
+          margin-bottom: 0;
+
+          .info-weather-header {
+            margin-bottom: 5px;
+            font-size: 16px;
+          }
+
+
+          .info-weather-data {
+
+            ul {
+              row-gap: 10px;
+
+              li {
+                height: 90px;
+
+                .weatherBox {
+                  width: 30px;
+                }
+              }
+            }
+          }
+        }
+
+        .info-memo {
+          min-width: 100px;
+          max-width: 150px;
+          min-height: 150px;
+          max-height: 200px;
+        }
+      }
+    }
+
+    .calendar-month {
+      width: 100%;
+      padding: 20vh 0 40vh;
+
+      .month {
+
+        .month-header {
+          font-size: 30px;
+        }
+
+        .date {
+          height: 70px;
+        }
+
+        .date-grid {
+          .true {
+            font-size: 13px;
+            .clicked {
+              &::after {
+                width: 26px;
+                height: 26px;
+              }
+            }
+
+            .weatherImg {
+              margin-top: 5px;
+              width: 25px;
+            }
+          }
+
+          .memoed {
+            &::after{
+              bottom: 7px;
+              width: 5px;
+              height: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 1200px) {
+
+  header {
+    width: 100%;
+    padding-top: 15px;
+
+    .header-banner {
+      margin-bottom: 0;
+      padding: 0 100px;
+    }
+
+    .header-day {
+      padding-bottom: 15px;
+    }
+  }
+
+
+  .calendar {
+
+    .calendar-info {
+      top: auto;
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      border-right: none;
+      border-top: 1px solid #cfcfcf;
+      z-index: 999;
+
+      .info {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .info-weather {
+          width: 35%;
+          margin-bottom: 0;
+
+          .info-weather-header {
+            margin-bottom: 15px;
+          }
+
+
+          .info-weather-data {
+
+            ul {
+              row-gap: 15px;
+
+              li {
+                height: 100px;
+
+                .weatherBox {
+                  width: 30px;
+                }
+              }
+            }
+          }
+        }
+
+        .info-memo {
+          min-width: 250px;
+          max-width: 400px;
+          min-height: 150px;
+          max-height: 200px;
+        }
+      }
+    }
+
+    .calendar-month {
+      width: 100%;
+      padding: 20vh 0 25vh;
+
+      .month {
+
+        .date {
+          height: 90px;
+        }
+
+        .date-grid {
+          .true {
+            font-size: 18px;
+            .clicked {
+              &::after {
+                width: 32px;
+                height: 32px;
+              }
+            }
+
+            .weatherImg {
+              width: 30px;
+            }
+          }
+
+          .memoed {
+            &::after{
+              bottom: 7px;
+              width: 6px;
+              height: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
