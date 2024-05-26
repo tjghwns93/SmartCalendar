@@ -312,7 +312,7 @@ header .header-day li {
   }
   .calendar .calendar-month {
     width: 100%;
-    padding: 20vh 0 40vh;
+    padding: 20vh 0 50vh;
   }
   .calendar .calendar-month .month .month-header {
     font-size: 30px;
