@@ -130,7 +130,7 @@ const App = () => {
                     if(entryBottom + entryTop < window.innerHeight){
                         setViewYear(prevYear => prevYear - 1);
                     }
-                }else if(entryTop < 0 && entryBottom > 0 && entryTop + entryBottom > 0){
+                }else if(entryTop < 0 && entryTop > -100 && entryBottom > 0 && entryTop + entryBottom > 0){
                     setViewYear(prevYear => prevYear + 1);
                 }
             });

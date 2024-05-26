@@ -312,13 +312,13 @@ header .header-day li {
   }
   .calendar .calendar-month {
     width: 100%;
-    padding: 20vh 0 40vh;
+    padding: 35vh 0 23vh;
   }
   .calendar .calendar-month .month .month-header {
     font-size: 30px;
   }
   .calendar .calendar-month .month .date {
-    height: 80px;
+    height: 70px;
   }
   .calendar .calendar-month .month .date-grid .true {
     font-size: 13px;
@@ -328,8 +328,8 @@ header .header-day li {
     height: 26px;
   }
   .calendar .calendar-month .month .date-grid .true .weatherImg {
-    margin-top: 10px;
-    width: 25px;
+    margin-top: 7px;
+    width: 23px;
   }
   .calendar .calendar-month .month .date-grid .memoed::after {
     bottom: 7px;
@@ -387,7 +387,7 @@ header .header-day li {
   }
   .calendar .calendar-month {
     width: 100%;
-    padding: 20vh 0 25vh;
+    padding: 36vh 0 7vh;
   }
   .calendar .calendar-month .month .date {
     height: 90px;
