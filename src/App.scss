@@ -400,7 +400,7 @@ header {
 
     .calendar-month {
       width: 100%;
-      padding: 20vh 0 50vh;
+      padding: 20vh 0 40vh;
 
       .month {
 
@@ -409,7 +409,7 @@ header {
         }
 
         .date {
-          height: 70px;
+          height: 80px;
         }
 
         .date-grid {
@@ -423,7 +423,7 @@ header {
             }
 
             .weatherImg {
-              margin-top: 5px;
+              margin-top: 10px;
               width: 25px;
             }
           }
