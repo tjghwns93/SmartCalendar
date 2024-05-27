@@ -68,6 +68,7 @@ function Detail (props){
                 </div>
             </div>
             <textarea className="info-memo"
+                spellCheck={false}
                 value={infoMemo}
                 onChange={(e) => {
                     setInfoMemo(e.target.value);
