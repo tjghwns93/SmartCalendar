@@ -189,7 +189,7 @@ const App = () => {
             <div className='calendar'>
                 <div className='calendar-info'>
                     <Routes>
-                        <Route path='/' element={<Home forecastData={forecastData} weatherImages={weatherImages}/>}/>
+                        <Route path='/' element={<Home forecastData={forecastData} weatherImages={weatherImages} selected={selected}/>}/>
                         <Route path='/detail/:id' element={<Detail forecastData={forecastData} weatherImages={weatherImages} selected={selected}/>}/>
                     </Routes>
                 </div>

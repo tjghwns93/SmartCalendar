@@ -36,7 +36,7 @@ function Home (props){
     return (
         <div className="info">
             <div className="info-weather">
-                <p className="info-weather-header">{year}년{month}월{day}일 서울날씨</p>
+                <p className="info-weather-header">{year}년{month}월{day}일 {props.selected}날씨</p>
                 <div className="info-weather-data">
                     <ul>
                         {
