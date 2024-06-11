@@ -313,29 +313,28 @@ header .header-day li {
   }
   .calendar .calendar-month {
     width: 100%;
-    padding: 35vh 0 23vh;
+    padding: 40vh 0 8vh;
   }
   .calendar .calendar-month .month .month-header {
-    font-size: 30px;
+    font-size: 22px;
   }
   .calendar .calendar-month .month .date {
-    height: 70px;
+    height: 90px;
   }
   .calendar .calendar-month .month .date-grid .true {
-    font-size: 13px;
+    font-size: 18px;
   }
   .calendar .calendar-month .month .date-grid .true .clicked::after {
-    width: 26px;
-    height: 26px;
+    width: 32px;
+    height: 32px;
   }
   .calendar .calendar-month .month .date-grid .true .weatherImg {
-    margin-top: 7px;
-    width: 23px;
+    width: 30px;
   }
   .calendar .calendar-month .month .date-grid .memoed::after {
     bottom: 7px;
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 1200px) {

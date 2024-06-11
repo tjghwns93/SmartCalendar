@@ -401,39 +401,38 @@ header {
 
     .calendar-month {
       width: 100%;
-      padding: 35vh 0 23vh;
+      padding: 40vh 0 8vh;
 
       .month {
 
         .month-header {
-          font-size: 30px;
+          font-size: 22px;
         }
 
         .date {
-          height: 70px;
+          height: 90px;
         }
 
         .date-grid {
           .true {
-            font-size: 13px;
+            font-size: 18px;
             .clicked {
               &::after {
-                width: 26px;
-                height: 26px;
+                width: 32px;
+                height: 32px;
               }
             }
 
             .weatherImg {
-              margin-top: 7px;
-              width: 23px;
+              width: 30px;
             }
           }
 
           .memoed {
             &::after{
               bottom: 7px;
-              width: 5px;
-              height: 5px;
+              width: 6px;
+              height: 6px;
             }
           }
         }
